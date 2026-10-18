@@ -1,5 +1,6 @@
 export const useMainStore =
 defineStore('main', () => {
+
   const loading =
     ref(false)
 
@@ -34,4 +35,5 @@ defineStore('main', () => {
     currencyIso,
     phoneNo
   }
+
 })
