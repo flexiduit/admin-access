@@ -1,9 +1,7 @@
-// nuxt.config.ts
-
 export default defineNuxtConfig({
-  devtools: {
-    enabled: true
-  },
+  modules: [
+    '@pinia/nuxt'
+  ],
 
   css: [
     '~/assets/css/main.css'
@@ -11,16 +9,29 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      viewport: 'width=device-width, initial-scale=1',
-      htmlAttrs: {
-        lang: 'en'
-      }
+      title:
+        'FlexiDuit 2026 | Dapatkan Pinjaman dengan Proses Mudah'
     }
   },
 
-  vite: {
-    css: {
-      devSourcemap: true
+  runtimeConfig: {
+    public: {
+      brand: 'FlexiDuit',
+
+      currency: 'RM',
+
+      currencyIso: 'MYR',
+
+      dialCode: '60',
+
+      mainDomain:
+        'https://www.flexiduit.asia',
+
+      apkLink:
+        'https://play.google.com/store/apps/details?id=id.flexd.asia',
+
+      turnstileSiteKey:
+        '0x4AAAAAACp7-EuqOY6ruI2y'
     }
   }
 })
