@@ -1,27 +1,15 @@
 export const BRAND = {
-
-  BRAND:
-    'FlexiDuit',
-
-  MAIN_DOMAIN:
-    'https://www.flexiduit.asia',
-
-  MERCHANT:
-    'flexiduit',
-
-  CURRENCY:
-    'RM',
-
-  CURRENCY_ISO:
-    'MYR',
-
-  DIAL_CODE:
-    '60',
-
-  APK_LINK:
-    'https://play.google.com/store/apps/details?id=id.flexd.asia',
-
-  TURNSTILE_SITEKEY:
-    '0x4AAAAAACp7-EuqOY6ruI2y'
-
-}
+  name: 'FlexiDuit',
+  legalName: 'FLEX (M) SDN BHD',
+  registration: '200401031836 (0368919-K)',
+  license: 'WL7046/14/01-7/281026',
+  licenseValidity: '18/9/2025 – 18/9/2027',
+  address: '1088, Kemaris Avenue, Jalan Batu Arang, 48000 Rawang, Selangor',
+  social: {
+    facebook: 'https://www.facebook.com/flexiduitmalaysia/',
+    instagram: 'https://www.instagram.com/flexiduit/',
+    tiktok: 'https://www.tiktok.com/@flexiduit?lang=en',
+    twitter: 'https://x.com/flexiduit',
+    telegram: 'https://t.me/flexiduit',
+  },
+} as const
