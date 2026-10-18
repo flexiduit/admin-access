@@ -1,9 +1,17 @@
 export const useSiteStore =
 defineStore('site', () => {
-  const brand =
-    ref('FlexiDuit')
+
+  const brand = ref(
+    'FlexiDuit'
+  )
 
   const site = ref({})
+
+  const headCode =
+    ref('')
+
+  const bodyCode =
+    ref('')
 
   const pageSeoSettings =
     ref({})
@@ -11,6 +19,9 @@ defineStore('site', () => {
   return {
     brand,
     site,
+    headCode,
+    bodyCode,
     pageSeoSettings
   }
+
 })
