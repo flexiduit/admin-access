@@ -1,0 +1,27 @@
+.mobile-menu[data-v-5c495e17] {
+    padding-top: 52px;
+}
+
+@media (min-width: 640px) {
+    .mobile-menu[data-v-5c495e17] {
+        padding-top: 56px;
+    }
+}
+
+.mobile-menu[data-v-5c495e17] .drawer-content {
+    background-color: rgba(var(--scene));
+    color: rgba(var(--accent-content));
+    max-width: 240px;
+    padding: 40px;
+}
+
+.mobile-menu-link[data-v-5c495e17] {
+    display: block;
+    font-weight: 700;
+    text-align: center;
+}
+
+.mobile-menu-link.router-link-active[data-v-5c495e17],
+.mobile-menu-link[data-v-5c495e17]:hover {
+    color: rgb(var(--primary));
+}
