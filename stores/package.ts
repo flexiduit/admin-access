@@ -1,31 +1,40 @@
-export const usePackageStore =
-defineStore('package', () => {
+import { defineStore } from 'pinia'
+import type { Package } from '~/types/package'
 
-  const data = ref([])
+interface PackageState {
+  data: Package[]
+  selected: number | null
+}
 
-  const selected = ref(null)
+export const usePackageStore = defineStore('package', {
+  state: (): PackageState => ({
+    data: [],
+    selected: null,
+  }),
 
-  function setData(
-    packages: any[]
-  ) {
+  getters: {
+    current: (state): Package | null => {
+      if (!state.data.length) return null
+      if (state.selected === null) return state.data[0] ?? null
+      return state.data.find((p) => p.id === state.selected) ?? state.data[0]
+    },
+  },
 
-    data.value = packages
+  actions: {
+    async fetchPackages() {
+      const res = await $fetch<{ success: boolean; data: { packages: Package[] } }>('/api/package', {
+        credentials: 'include',
+      })
+      if (res?.success && res.data?.packages) {
+        this.data = res.data.packages
+        if (this.selected === null && this.data.length) {
+          this.selected = this.data[0].id
+        }
+      }
+    },
 
-  }
-
-  function select(
-    item: any
-  ) {
-
-    selected.value = item
-
-  }
-
-  return {
-    data,
-    selected,
-    setData,
-    select
-  }
-
+    select(id: number) {
+      this.selected = id
+    },
+  },
 })
