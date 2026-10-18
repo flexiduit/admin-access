@@ -1,23 +1,27 @@
-export const BRAND_CONFIG = {
-  name: 'FlexiDuit',
+export const BRAND = {
 
-  website: 'https://www.flexiduit.asia',
+  BRAND:
+    'FlexiDuit',
 
-  merchant: 'flexiduit',
+  MAIN_DOMAIN:
+    'https://www.flexiduit.asia',
 
-  currency: 'RM',
+  MERCHANT:
+    'flexiduit',
 
-  currencyIso: 'MYR',
+  CURRENCY:
+    'RM',
 
-  dialCode: '60',
+  CURRENCY_ISO:
+    'MYR',
 
-  apkLink:
+  DIAL_CODE:
+    '60',
+
+  APK_LINK:
     'https://play.google.com/store/apps/details?id=id.flexd.asia',
 
-  turnstileSiteKey:
-    '0x4AAAAAACp7-EuqOY6ruI2y',
+  TURNSTILE_SITEKEY:
+    '0x4AAAAAACp7-EuqOY6ruI2y'
 
-  supportPhone: '',
-
-  supportEmail: ''
 }
