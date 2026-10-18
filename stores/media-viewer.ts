@@ -1,35 +1,46 @@
-export const useMediaViewerStore =
-defineStore(
-  'media-viewer',
-  () => {
-    const show =
-      ref(false)
+import { defineStore } from 'pinia'
 
-    const slides =
-      ref<any[]>([])
+export interface MediaSlide {
+  src: string
+  title?: string
+  alt?: string
+}
 
-    const slideIndex =
-      ref(0)
+interface MediaViewerState {
+  show: boolean
+  slides: MediaSlide[]
+  slideIndex: number
+}
 
-    function open(
-      images: any[],
-      index = 0
-    ) {
-      slides.value = images
-      slideIndex.value = index
-      show.value = true
-    }
+export const useMediaViewerStore = defineStore('media_viewer', {
+  state: (): MediaViewerState => ({
+    show: false,
+    slides: [],
+    slideIndex: 0,
+  }),
 
-    function close() {
-      show.value = false
-    }
-
-    return {
-      show,
-      slides,
-      slideIndex,
-      open,
-      close
-    }
-  }
-)
+  actions: {
+    open(slides: MediaSlide[], index = 0) {
+      this.slides = slides
+      this.slideIndex = index
+      this.show = true
+    },
+    close() {
+      this.show = false
+      this.slides = []
+      this.slideIndex = 0
+    },
+    next() {
+      if (!this.slides.length) return
+      this.slideIndex = (this.slideIndex + 1) % this.slides.length
+    },
+    prev() {
+      if (!this.slides.length) return
+      this.slideIndex = (this.slideIndex - 1 + this.slides.length) % this.slides.length
+    },
+    goTo(i: number) {
+      if (i < 0 || i >= this.slides.length) return
+      this.slideIndex = i
+    },
+  },
+})
