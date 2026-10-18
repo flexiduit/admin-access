@@ -1,31 +1,35 @@
-export const useToastStore =
-defineStore('toast', () => {
-  const toasts =
-    ref<any[]>([])
+import { defineStore } from 'pinia'
 
-  function addToast(
-    message: string,
-    type = 'success'
-  ) {
-    toasts.value.push({
-      id: Date.now(),
-      message,
-      type
-    })
-  }
+export type ToastType = 'success' | 'error' | 'warning' | 'info'
 
-  function removeToast(
-    id: number
-  ) {
-    toasts.value =
-      toasts.value.filter(
-        t => t.id !== id
-      )
-  }
+export interface ToastItem {
+  id: number
+  type: ToastType
+  message: string
+  timeout: number
+}
 
-  return {
-    toasts,
-    addToast,
-    removeToast
-  }
+let counter = 0
+
+export const useToastStore = defineStore('toast', {
+  state: () => ({
+    toasts: [] as ToastItem[],
+  }),
+
+  actions: {
+    push(message: string, type: ToastType = 'info', timeout = 4000) {
+      const id = ++counter
+      this.toasts.push({ id, type, message, timeout })
+      if (timeout > 0) {
+        setTimeout(() => this.remove(id), timeout)
+      }
+      return id
+    },
+    remove(id: number) {
+      this.toasts = this.toasts.filter((t) => t.id !== id)
+    },
+    clear() {
+      this.toasts = []
+    },
+  },
 })
