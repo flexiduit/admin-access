@@ -1,4 +1,5 @@
 export default defineNuxtConfig({
+
   modules: [
     '@pinia/nuxt'
   ],
@@ -9,29 +10,45 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+
       title:
-        'FlexiDuit 2026 | Dapatkan Pinjaman dengan Proses Mudah'
+        'FlexiDuit 2026 | Dapatkan Pinjaman dengan Proses Mudah',
+
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Kami adalah syarikat berlesen dengan permit dari kerajaan Malaysia'
+        }
+      ]
+
     }
   },
 
   runtimeConfig: {
+
     public: {
-      brand: 'FlexiDuit',
 
-      currency: 'RM',
+      BRAND:
+        'FlexiDuit',
 
-      currencyIso: 'MYR',
-
-      dialCode: '60',
-
-      mainDomain:
+      MAIN_DOMAIN:
         'https://www.flexiduit.asia',
 
-      apkLink:
-        'https://play.google.com/store/apps/details?id=id.flexd.asia',
+      CURRENCY:
+        'RM',
 
-      turnstileSiteKey:
+      CURRENCY_ISO:
+        'MYR',
+
+      DIAL_CODE:
+        '60',
+
+      TURNSTILE_SITEKEY:
         '0x4AAAAAACp7-EuqOY6ruI2y'
+
     }
+
   }
+
 })
