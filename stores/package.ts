@@ -1,27 +1,31 @@
 export const usePackageStore =
 defineStore('package', () => {
-  const data =
-    ref<any[]>([])
 
-  const selected =
-    ref<any>(null)
+  const data = ref([])
 
-  function setPackages(
+  const selected = ref(null)
+
+  function setData(
     packages: any[]
   ) {
+
     data.value = packages
+
   }
 
-  function selectPackage(
+  function select(
     item: any
   ) {
+
     selected.value = item
+
   }
 
   return {
     data,
     selected,
-    setPackages,
-    selectPackage
+    setData,
+    select
   }
+
 })
