@@ -1,0 +1,22 @@
+#announcementModal .modal-content,
+[data-v-5c495e17] .log-in-modal .modal-content {
+    background-color: transparent;
+    padding: 0;
+}
+
+#mediaViewerModal[data-v-2d5a6a9c] .modal-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.modal-footer[data-v-5431c577] {
+    background-color: transparent;
+}
+
+@media (min-width: 1024px) {
+    #newsModal .modal-content {
+        background-color: transparent;
+        padding: 0;
+    }
+}
